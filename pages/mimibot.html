@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>justinsoh</title>
+        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link rel="stylesheet" href="./css/font-mfizz.css">
+        <link href="../css/styles.css" rel="stylesheet" />
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">
+                <span class="d-block d-lg-none">Justin Soh</span>
+                <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="../assets/img/profile2.png" alt="..." /></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../index.html#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../index.html#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../index.html#education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../index.html#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../index.html#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../index.html#interests">Interests</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../index.html#awards">Awards</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!-- Page Content-->
+        <div class="container-fluid p-0">
+            <!-- About-->
+            <section class="resume-section" id="about">
+                <div class="resume-section-content">
+                    <h1 class="mb-0">
+                        MIMIBOT
+                    </h1>
+                    <div class="subheading mb-5">
+                        Champion IMDA Splash Award 2018 (Tertiary)
+                        <ul class="list-inline dev-icons">
+                            <li class="list-inline-item"><i class="fab fa-angular"></i></li>
+                            <li class="list-inline-item"><i class="fab fa-python"></i></li>
+                            <li class="list-inline-item"><i class="fab fa-android"></i></li>
+                        </ul>
+                    </div>
+                    <p class="lead mb-5">
+                        <img class="img-fluid" src="../assets/img/mimibot_group.jpeg"></img>
+                        <br><br>
+                        Mimibot is a project that I developed back in NYP for the IMDA Splash Award 2018 Competition. In which, we clinched first place. 
+                        You can check out our features over at the <b><a href="https://www.imda.gov.sg/resources/blog/blog-articles/archived/2018/08/ai-can-verbalise-why-baby-cries">IMDA</a></b> page or on the <b><a href="https://www.nyp.edu.sg/schools/sit/achievements-and-awards/2018/splash-awards-2018.html">NYP</a></b> page. Primarily developed using <b>TypeScript</b>, <b>Java</b> and <b>Python</b> 
+                        Mimibot is a chatbot designed to facilitate communication between working adults and children, leveraging Natural Language Processing (NLP) to provide valuable insights to parents.
+                         <br><br> At the core of Mimibot lies XiaoBai, an Android robot. Our objective is to bridge communication gaps through sophisticated NLP techniques.
+                         As children interact with our chatbot, their input is relayed to our Mimi Analytics Engine.
+                         <br><br>
+                         <img class="img-fluid" src="../assets/img/mimibot_architecture.png"></img>
+                         In the initial stages, we developed a prototype Topic Modeling algorithm capable of detecting various topics, 
+                         including depression. This process consisted of two main components. 
+                         <br><br>
+                         Firstly, we gathered data by scraping several websites, including depression-focused forums, to obtain keywords for categorization. To do scraping, we utilised
+                         Selenium as a tool to help gather data efficiently.  
+                         <br><br>
+                         Secondly, we implemented the model in our system. Upon receiving a user input (what the child has expressed), we perform pre-processing tasks 
+                         such as lemmatization and tokenization. 
+                         <br><br>
+                         Subsequently, using the identified topics within the sentence, we feed the input into our model to predict the relevant topic.
+                         <br><br>
+                         Following the implementation of the core functionality, our attention turned to integrating and presenting the components cohesively. To enhance the user experience, we integrated the Indico sentiment analysis API. This addition empowers parents to gain insights into their children's emotional states.
+                         <br><br>
+                         Lastly, we developed a dashboard that provides parents with visibility into the topics, emotions, and activities their children engage with.
+                         <br><br>
+                         Throughout the development process, we encountered challenges, notably regarding contextual understanding.
+                          The topic modeling algorithm operates on a per-sentence basis, lacking broader context. 
+                          For instance, a word like "drive" could be categorized under "transport" or refer to a computer hard drive. 
+                          Reflecting on this, we recognize that implementing a contextual understanding mechanism, perhaps through secondary learning layers, 
+                          could have significantly enhanced the project's utility.
+                        <br><br>
+                        
+                    </p>
+                    <div class="social-icons">
+                        <a class="social-icon" href="https://github.com/JustinSoh/MimiBot"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>

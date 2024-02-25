@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>justinsoh</title>
+        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link rel="stylesheet" href="../css/font-mfizz.css">
+        <link href="../css/styles.css" rel="stylesheet" />
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">
+                <span class="d-block d-lg-none">Justin Soh</span>
+                <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="../assets/img/profile2.png" alt="..." /></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../index.html#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../index.html#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../index.html#education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../index.html#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../index.html#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../index.html#interests">Interests</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../index.html#awards">Awards</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!-- Page Content-->
+        <div class="container-fluid p-0">
+            <!-- About-->
+            <section class="resume-section" id="about">
+                <div class="resume-section-content">
+                    <h1 class="mb-0">
+                        LogHub
+                    </h1>
+                    <div class="subheading mb-5">
+                        Year 3 Project at Nanyang Polytechnic
+                        <ul class="list-inline dev-icons">
+                            <li class="list-inline-item"><i class="fab fa-angular"></i></li>
+                            <li class="list-inline-item"><i class="fab fa-python"></i></li>
+                            <li class="list-inline-item"><i class="fab fa-raspberry-pi"></i></li>
+                        </ul>
+                    </div>
+                    <p class="lead mb-5">
+                        <img class="img-fluid" src="../assets/img/loghub_architecture.png"></img>
+                        <br><br>
+                        LogHub, a security-based project I developed with my teammates during my time in school, 
+                        aimed to create a software that can easily monitor and analyze an organizations operations in real time so that small/medium enterprises (SMEs) are able to gain visiblity
+                        to the flow of information within their enterprise. 
+                        LogHub addressed this problem through three phases: collection, processing, and visualization. In this writeup, I will focus mostly on the data processing portion.
+                        <br><br>
+                        In the collection phase, we first deployed an EndPoint Service on each system within our clients' organization, interacting with our Raspberry Pi's Collector. 
+                        This Raspberry Pi collector then transmitted the logs via a VPN to our internal collector, which subsequently forwarded them to our database.
+                        <br><br>
+                        Moving to the processing phase, I created a <b><a href="https://github.com/JustinSoh/Prediction">Python scikit that utilised a K-nearest neighbor algorithm</a></b> to establish the network traffic baseline. 
+                        
+                        The data is initially baselined, with the first 50 logs designated as training data to establish an individual baseline for risk categorization. 
+                        Using Python's Scikit-learn K nearest neighbour model, an unsupervised clustering algorithm, 
+                        data points are clustered based on their dates and bandwidth usage. Each input ("A") identifies its 15 
+                        nearest neighbors ("X"), which in turn find their own 15 nearest neighbors ("B"). 
+                        <br><br>
+                        The algorithm calculates the frequency of occurrence of "X" within "B" to determine risk. 
+                        This risk assessment considers both the count of occurrences and the distance between "X" and "A". 
+                        <br><br>
+                        The baseline is periodically updated, processing all data points not included initially with each new log received. 
+                        These data points undergo the same risk categorization formula, and if the count exceeds 20, they are flagged as "Included" for future risk assessment, 
+                        ensuring the algorithm remains relevant over time.
+                        <br><br>
+                        <img class="img-fluid" src="../assets/img/loghub_dashboard.png"></img>
+                        <br><br>
+                        Lastly, I displayed this data on a dashboard showcasing the risk 
+                        level with Blue (Training Point), Green (Low Risk), Orange (Medium Risk), Pink (High Risk), Red (Very High Risk) demonstrating the potential impact if a user were affected by a 
+                        cryptominer utilizing the computer’s network bandwidth without their knowledge.
+                        <br><br>
+                        Reflecting on the project, we identified an issue with the K-Nearest Neighbor algorithm's susceptibility to skewing. 
+                        For example, legitimate high-bandwidth activities, such as streaming a 4K video, might inadvertently affect the algorithm's baseline. 
+                        This could lead to flagging legitimate activities as low risk. Exploring alternative algorithms like K-Means could provide a more effective solution. 
+                    </p>
+                    <div class="social-icons">
+                        <a class="social-icon" href="https://github.com/JustinSoh/LogHub"><i class="fab fa-github"></i></a>
+                        <a class="social-icon" href="https://github.com/JustinSoh/Prediction"><i class="fab fa-github"></i></a>
+                        
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
